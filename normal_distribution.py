@@ -1,6 +1,6 @@
 import statistics
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import csv
 
@@ -12,9 +12,9 @@ std_deviation = statistics.stdev(data)
 median = statistics.median(data)
 mode = statistics.mode(data)
 
-first_std_deviation_start, first_std_deviation_end = mean - std_deviation, mean + std_deviation
-second_std_deviation_start, second_std_deviation_end = mean - (2 * std_deviation), mean + (2 * std_deviation)
-third_std_deviation_start, third_std_deviation-end = mean - (3 * std_deviation), mean + (3 * std_deviation)
+first_std_deviation_start, first_std_deviation_end = mean-std_deviation, mean+std_deviation
+second_std_deviation_start, second_std_deviation_end = mean-(2*std_deviation), mean+(2*std_deviation)
+third_std_deviation_start, third_std_deviation_end = mean-(3*std_deviation), mean+(3*std_deviation)
 
 fig = ff.create_distplot([data], ["reading scores"], show_hist=False)
 fig.add_trace(go.Scatter(x=[mean, mean], y=[0, 0.17], mode="lines", name="MEAN"))
